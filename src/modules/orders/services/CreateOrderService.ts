@@ -55,8 +55,6 @@ class CreateOrderService {
         productQuantity === undefined ||
         product.quantity < productQuantity.quantity
       ) {
-        // console.log(productQuantity);
-        // console.log(product.quantity);
         throw new AppError('Product quantity not available!');
       }
 
@@ -66,8 +64,6 @@ class CreateOrderService {
         order_product_quantity: productQuantity.quantity,
       };
     });
-    console.log(updateQuantityProducts);
-    // console.log(checkProducts);
 
     // Update inventory
     await this.productsRepository.updateQuantity(updateQuantityProducts);
